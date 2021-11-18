@@ -1,95 +1,3 @@
-// import React from 'react';
-// import '../App.css';
-// import Header from './Header';
-// import InputTodo from './InputTodo';
-// import TodosList from './TodosList';
-// import Navbar from './Navbar';
-// import { v4 as uuidv4 } from 'uuid';
-
-// class TodoContainer extends React.Component {
-//   state = {
-//     todos: [],
-//   };
-//   handleChange = (id) => {
-//     this.setState({
-//       todos: this.state.todos.map((stavka) => {
-//         if (stavka.id === id) {
-//           stavka.completed = !stavka.completed;
-//         }
-//         return stavka;
-//       }),
-//     });
-//   };
-//   delTodo = (id) => {
-//     this.setState({
-//       todos: [
-//         ...this.state.todos.filter((stavka) => {
-//           // obrisi od ranije props
-//           return stavka.id !== id;
-//         }),
-//       ],
-//     });
-//   };
-
-//   addTodoItem = (title) => {
-//     const newTodo = {
-//       id: uuidv4(),
-//       title: title,
-//       completed: false,
-//     };
-//     this.setState({
-//       todos: [...this.state.todos, newTodo],
-//     });
-//   };
-
-//   setUpdate = (updatedTitle, id) => {
-//     this.setState({
-//       todos: this.state.todos.map((todo) => {
-//         if (todo.id === id) {
-//           todo.title = updatedTitle;
-//         }
-//         return todo;
-//       }),
-//     });
-//   };
-//   /*
-//   dobijanje podataka iz bekenda
-//   */
-//   componentDidMount() {
-//     const temp = localStorage.getItem('todos');
-//     const loadedTodos = JSON.parse(temp);
-//     if (loadedTodos) {
-//       this.setState({
-//         todos: loadedTodos,
-//       });
-//     }
-//   }
-//   componentDidUpdate(prevProps, prevState) {
-//     if (prevState.todos !== this.state.todos) {
-//       const temp = JSON.stringify(this.state.todos);
-//       localStorage.setItem('todos', temp);
-//     }
-//   }
-//   render() {
-//     return (
-//       <div className="container">
-//         <div className="inner">
-//           <Header />
-//           <InputTodo addTodoProps={this.addTodoItem} />
-//           <TodosList
-//             stavkeIzNiza={this.state.todos}
-//             handleChangePropsContainer={this.handleChange}
-//             delTodoPropsContainer={this.delTodo}
-//             setUpdateContainer={this.setUpdate}
-//           />
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default TodoContainer;
-
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import Header from './Header';
@@ -168,7 +76,7 @@ const TodoContainer = () => {
   }, [todos]);
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Switch>
         <Route exact path="/">
           <div className="container">
